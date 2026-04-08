@@ -273,6 +273,38 @@ a:hover {
     padding: 1.25rem 1.4rem;
 }
 
+.value-prop {
+    border-left: 3px solid rgba(78, 165, 255, 0.85);
+}
+
+.value-prop h5 {
+    margin: 1rem 0 0.6rem;
+    color: #d9e8ff;
+    font-size: 1.05rem;
+}
+
+.bring-list {
+    margin-bottom: 0.9rem;
+}
+
+.bring-list li strong,
+.hero-copy strong,
+.value-prop p strong {
+    color: #dff0ff;
+    font-weight: 700;
+}
+
+.availability-note {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(22, 199, 132, 0.16);
+    border: 1px solid rgba(22, 199, 132, 0.4);
+    color: #b4f5da;
+    font-size: 0.86rem;
+}
+
 .metric-card {
     height: 100%;
     padding: 1.15rem 1.1rem;
