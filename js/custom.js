@@ -1,55 +1,30 @@
+$(function () {
+    "use strict";
 
-  $(function () {
-    'use strict'
-
-    // MENU
-    $('.navbar .nav-link').on('click',function(){
-        $(".navbar-collapse").collapse('hide');
+    // Close mobile menu on link click.
+    $(".navbar .nav-link").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
     });
 
-    $(window).on('scroll', function() {     
-                                
-        /*----------------------------------------------------*/
-        /*  Navigtion Menu Scroll
-        /*----------------------------------------------------*/    
-        
-        var b = $(window).scrollTop();
-        
-        if( b > 72 ){       
+    // Add a solid background on scroll for readability.
+    $(window).on("scroll", function () {
+        var offset = $(window).scrollTop();
+        if (offset > 72) {
             $(".navbar").addClass("scroll");
         } else {
             $(".navbar").removeClass("scroll");
-        }               
+        }
     });
 
-    // TESTIMONIALS CAROUSEL
-    $('#testimonials-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-            },
-            900:{
-                items:2,
-            },
-            1200:{
-                items:3,
-                loop:false
-            }
+    // Smooth anchor scrolling with fixed navbar offset.
+    $(".navbar .nav-link, .hero-btn").on("click", function (event) {
+        var targetSelector = $(this).attr("href");
+        if (targetSelector && targetSelector.startsWith("#") && $(targetSelector).length) {
+            event.preventDefault();
+            $("html, body").stop().animate(
+                { scrollTop: $(targetSelector).offset().top - 78 },
+                700
+            );
         }
-    })
-
-    // SMOOTHSCROLL
-    $(function() {
-      $('.navbar .nav-link').on('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 49
-        }, 1000);
-        event.preventDefault();
-      });
-    });   
-     
-  });
+    });
+});
